@@ -4,12 +4,12 @@ mod utils;
 
 use std::{self, fs, io::{self, Read, Result, Write}, process};
 
-use args::Args;
+use args::LettersArgs;
 use clap::Parser;
 use utils::convert_to_path;
 
 fn main() -> Result<()> {
-    let args = Args::parse();
+    let args = LettersArgs::parse();
     
     let source = convert_to_path(&args.source)?;
     let destination = convert_to_path(&args.destination)?;
@@ -18,7 +18,7 @@ fn main() -> Result<()> {
         Some(path) => fs::read_to_string(path)?,
         None => {
             if atty::is(atty::Stream::Stdin) {
-                eprintln!("%PROGRAM% -> No input given");
+                eprintln!("letters -> No input given");
                 process::exit(1);
             }
 

@@ -167,6 +167,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "letters"
+version = "0.1.0"
+dependencies = [
+ "atty",
+ "clap",
+ "dirs",
+]
+
+[[package]]
 name = "libc"
 version = "0.2.153"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -215,15 +224,6 @@ dependencies = [
  "getrandom",
  "libredox",
  "thiserror",
-]
-
-[[package]]
-name = "rust-cli-tool-template"
-version = "0.1.0"
-dependencies = [
- "atty",
- "clap",
- "dirs",
 ]
 
 [[package]]
