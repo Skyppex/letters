@@ -1,9 +1,8 @@
 use clap::{ArgGroup, Args, Parser};
 
-/// Write a concise description of the command here.
+/// Do something with letters.
 #[derive(Debug, Clone, Parser)]
 #[command(version, author, about)]
-#[command(group=ArgGroup::new("log").args(["verbose", "quiet"]).multiple(false))]
 #[command(group=ArgGroup::new("from").args(["first", "last"]).multiple(false))]
 #[command(group=ArgGroup::new("case").arg("case_sensitive").requires("equals"))]
 pub struct LettersArgs {
@@ -14,15 +13,6 @@ pub struct LettersArgs {
     /// The destination file to write to. If not provided, write to stdout.
     #[arg(short, long)]
     pub destination: Option<String>,
-
-    /// Enable verbose logging.
-    #[arg(short, long)]
-    pub verbose: bool,
-
-    /// Suppress all informational output.
-    /// Errors will still be printed to stderr.
-    #[arg(short, long)]
-    pub quiet: bool,
 
     /// Get the first n letters from the input. (default 1)
     #[arg(short, long)]
@@ -74,6 +64,7 @@ pub struct Output {
     #[arg(short = 'n', long)]
     pub count: bool,
 
+    /// Group the output by letter and count each group.
     #[arg(short, long)]
     pub group: bool,
 }
