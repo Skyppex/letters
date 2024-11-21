@@ -22,7 +22,7 @@ pub struct LettersArgs {
     #[arg(short, long)]
     pub last: Option<Option<u64>>,
 
-    /// Filter the input to only include letters that contain the given substring.
+    /// Filter the input to only a single character.
     #[arg(short, long)]
     pub equals: Option<char>,
 
