@@ -67,4 +67,8 @@ pub struct Output {
     /// Group the output by letter and count each group.
     #[arg(short, long)]
     pub group: bool,
+
+    /// Convert input to ascii codes.
+    #[arg(short, long)]
+    pub ascii: bool,
 }
