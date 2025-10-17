@@ -99,6 +99,26 @@ fn join_items_str(items: Vec<String>, args: LettersArgs, sep: &str) -> String {
     }
 
     if output.json {
+        if output.group {
+            return format!(
+                "{{{}}}",
+                items
+                    .into_iter()
+                    .map(|i| {
+                        let mut key = &i[..1];
+
+                        if key == r#"""# {
+                            key = r#"\""#
+                        }
+
+                        let value = &i[3..];
+                        format!("\"{}\": \"{}\"", key, value)
+                    })
+                    .collect::<Vec<String>>()
+                    .join(", ")
+            );
+        }
+
         return format!("[\"{}\"]", items.join("\", \""));
     }
 
